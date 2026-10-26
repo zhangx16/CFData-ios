@@ -14,12 +14,14 @@ xcodebuild -version
 python3 ios/scripts/prepare_core.py
 
 MOBILE_VERSION=v0.0.0-20261011034528-197770444867
+IOS_APP_VERSION="${IOS_APP_VERSION:-1.1.0}"
 (
   cd build/mobile
   go mod tidy
   go get "golang.org/x/mobile/cmd/gobind@${MOBILE_VERSION}"
   go test -race ./internal/core
   gomobile bind -target=ios/arm64 -iosversion=16.0 \
+    -ldflags "-s -w -X cfdataios/internal/core.appVersion=$IOS_APP_VERSION" \
     -o "$TASK_ROOT/build/CFDataMobile.xcframework" ./mobile
 )
 
@@ -41,6 +43,7 @@ xcodebuild -project ios/CFData.xcodeproj -scheme CFData \
   -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' \
   -derivedDataPath build/DerivedData \
   CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY= \
+  MARKETING_VERSION="$IOS_APP_VERSION" \
   CURRENT_PROJECT_VERSION="${GITHUB_RUN_NUMBER:-1}" build
 
 APP_PATH="$TASK_ROOT/build/DerivedData/Build/Products/Release-iphoneos/CFData.app"

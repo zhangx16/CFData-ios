@@ -64,4 +64,5 @@ ios/Assets/Assets.xcassets/
 ios/Resources/LICENSE.txt
 __pycache__/
 *.pyc
+ios/node_modules/
 

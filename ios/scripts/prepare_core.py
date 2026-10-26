@@ -43,6 +43,8 @@ def main():
         if name == "go.mod":
             text = replace_once(text, "module cfdata", "module cfdataios", name)
         (OUT / name).write_text(text)
+    # Only the mobile build uses the dedicated phone interface.
+    shutil.copy2(ROOT / "ios/web/index.html", CORE / "index.html")
     shutil.copy2(ROOT / "ios/mobile/core.go", CORE / "mobile.go")
     shutil.copy2(ROOT / "ios/mobile/core_test.go", CORE / "mobile_test.go")
     (OUT / "mobile").mkdir()

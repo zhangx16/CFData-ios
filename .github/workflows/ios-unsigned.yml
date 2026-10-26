@@ -5,9 +5,9 @@ on:
   push:
     branches: [main, ios-unsigned]
     paths:
-      - 'ios/**'
-      - 'combined_refactor/**'
-      - '.github/workflows/ios-unsigned.yml'
+      - "ios/**"
+      - "combined_refactor/**"
+      - ".github/workflows/ios-unsigned.yml"
 
 permissions:
   contents: read
@@ -17,7 +17,35 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  ui-check:
+    name: Check mobile UI in WebKit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: ios/package-lock.json
+      - name: Install UI test dependencies
+        working-directory: ios
+        run: |
+          npm ci --ignore-scripts
+          npx playwright install --with-deps webkit
+      - name: Check mobile interactions and layouts
+        working-directory: ios
+        run: npm run test:ui
+      - name: Upload UI screenshots
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: mobile-ui-checks
+          path: build/ui-checks
+          if-no-files-found: ignore
+          retention-days: 7
   build:
+    needs: ui-check
     runs-on: macos-15
     timeout-minutes: 45
     env:

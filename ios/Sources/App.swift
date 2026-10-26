@@ -66,6 +66,8 @@ final class BrowserController: UIViewController, WKNavigationDelegate, WKUIDeleg
         webView = WKWebView(frame: .zero, configuration: config)
         webView.navigationDelegate = self
         webView.uiDelegate = self
+        webView.isOpaque = false
+        webView.backgroundColor = .systemBackground
         webView.isHidden = true
         webView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(webView)
@@ -162,6 +164,12 @@ final class BrowserController: UIViewController, WKNavigationDelegate, WKUIDeleg
         guard scriptMessage.frameInfo.isMainFrame, origin.protocol == "http", origin.host == "127.0.0.1", origin.port == backendURL?.port,
               let body = scriptMessage.body as? [String: Any], let kind = body["type"] as? String else { return }
         switch kind {
+        case "theme":
+            switch body["value"] as? String {
+            case "dark": overrideUserInterfaceStyle = .dark
+            case "light": overrideUserInterfaceStyle = .light
+            default: overrideUserInterfaceStyle = .unspecified
+            }
         case "copy":
             if let text = body["text"] as? String { UIPasteboard.general.string = text }
         case "activity":
@@ -198,7 +206,10 @@ final class BrowserController: UIViewController, WKNavigationDelegate, WKUIDeleg
         }
     }
 
-    func didBackground() { wasBackgrounded = true }
+    func didBackground() {
+        wasBackgrounded = true
+        webView?.evaluateJavaScript("window.cfdataWillBackground && window.cfdataWillBackground()", completionHandler: nil)
+    }
 
     func didForeground() {
         guard wasBackgrounded else { return }

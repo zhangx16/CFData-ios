@@ -1,0 +1,2054 @@
+[
+  {
+    "theme": "light",
+    "tab": "scan",
+    "width": 375,
+    "elements": 60,
+    "viewport": {
+      "width": 375,
+      "height": 900,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13,
+      "999px": 1
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 10,
+      "17px": 7,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 25
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark",
+        "999px": "[data-node=\"scan/basic\"] > label.row:nth-child(3) > input"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"scan\"] > div.page-intro > p",
+        "32px": "[data-node=\"scan\"] > div.page-intro > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "results",
+    "width": 375,
+    "elements": 88,
+    "viewport": {
+      "width": 375,
+      "height": 900,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 18,
+      "15px": 10,
+      "17px": 5,
+      "22px": 3,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 37
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "22px": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "32px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 1,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "settings",
+    "width": 375,
+    "elements": 56,
+    "viewport": {
+      "width": 375,
+      "height": 900,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 11
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 11,
+      "17px": 8,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 27
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > p",
+        "32px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "scan",
+    "width": 375,
+    "elements": 60,
+    "viewport": {
+      "width": 375,
+      "height": 900,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13,
+      "999px": 1
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 10,
+      "17px": 7,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 25
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark",
+        "999px": "[data-node=\"scan/basic\"] > label.row:nth-child(3) > input"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"scan\"] > div.page-intro > p",
+        "32px": "[data-node=\"scan\"] > div.page-intro > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "results",
+    "width": 375,
+    "elements": 88,
+    "viewport": {
+      "width": 375,
+      "height": 900,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 18,
+      "15px": 10,
+      "17px": 5,
+      "22px": 3,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 37
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "22px": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "32px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 1,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "settings",
+    "width": 375,
+    "elements": 56,
+    "viewport": {
+      "width": 375,
+      "height": 900,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 11
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 11,
+      "17px": 8,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 27
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > p",
+        "32px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "scan",
+    "width": 768,
+    "elements": 60,
+    "viewport": {
+      "width": 768,
+      "height": 900,
+      "content": 768,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13,
+      "999px": 1
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 10,
+      "17px": 7,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 25
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark",
+        "999px": "[data-node=\"scan/basic\"] > label.row:nth-child(3) > input"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"scan\"] > div.page-intro > p",
+        "32px": "[data-node=\"scan\"] > div.page-intro > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "results",
+    "width": 768,
+    "elements": 88,
+    "viewport": {
+      "width": 768,
+      "height": 900,
+      "content": 768,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 18,
+      "15px": 10,
+      "17px": 5,
+      "22px": 3,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 37
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "22px": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "32px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 1,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "settings",
+    "width": 768,
+    "elements": 56,
+    "viewport": {
+      "width": 768,
+      "height": 900,
+      "content": 768,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 11
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 11,
+      "17px": 8,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 27
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > p",
+        "32px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "scan",
+    "width": 768,
+    "elements": 60,
+    "viewport": {
+      "width": 768,
+      "height": 900,
+      "content": 768,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13,
+      "999px": 1
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 10,
+      "17px": 7,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 25
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark",
+        "999px": "[data-node=\"scan/basic\"] > label.row:nth-child(3) > input"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"scan\"] > div.page-intro > p",
+        "32px": "[data-node=\"scan\"] > div.page-intro > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "results",
+    "width": 768,
+    "elements": 88,
+    "viewport": {
+      "width": 768,
+      "height": 900,
+      "content": 768,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 18,
+      "15px": 10,
+      "17px": 5,
+      "22px": 3,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 37
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "22px": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "32px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 1,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "settings",
+    "width": 768,
+    "elements": 56,
+    "viewport": {
+      "width": 768,
+      "height": 900,
+      "content": 768,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 11
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 11,
+      "17px": 8,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 27
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > p",
+        "32px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "scan",
+    "width": 1280,
+    "elements": 60,
+    "viewport": {
+      "width": 1280,
+      "height": 900,
+      "content": 1280,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13,
+      "999px": 1
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 10,
+      "17px": 7,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 25
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark",
+        "999px": "[data-node=\"scan/basic\"] > label.row:nth-child(3) > input"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"scan\"] > div.page-intro > p",
+        "32px": "[data-node=\"scan\"] > div.page-intro > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "results",
+    "width": 1280,
+    "elements": 88,
+    "viewport": {
+      "width": 1280,
+      "height": 900,
+      "content": 1280,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 18,
+      "15px": 10,
+      "17px": 5,
+      "22px": 3,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 37
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "22px": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "32px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 1,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "settings",
+    "width": 1280,
+    "elements": 56,
+    "viewport": {
+      "width": 1280,
+      "height": 900,
+      "content": 1280,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 11
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 11,
+      "17px": 8,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 27
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > p",
+        "32px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "scan",
+    "width": 1280,
+    "elements": 60,
+    "viewport": {
+      "width": 1280,
+      "height": 900,
+      "content": 1280,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13,
+      "999px": 1
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 10,
+      "17px": 7,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 25
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark",
+        "999px": "[data-node=\"scan/basic\"] > label.row:nth-child(3) > input"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"scan\"] > div.page-intro > p",
+        "32px": "[data-node=\"scan\"] > div.page-intro > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "results",
+    "width": 1280,
+    "elements": 88,
+    "viewport": {
+      "width": 1280,
+      "height": 900,
+      "content": 1280,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 13
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 18,
+      "15px": 10,
+      "17px": 5,
+      "22px": 3,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 37
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "22px": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "32px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 1,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "settings",
+    "width": 1280,
+    "elements": 56,
+    "viewport": {
+      "width": 1280,
+      "height": 900,
+      "content": 1280,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 11
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 11,
+      "17px": 8,
+      "15px": 7,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 27
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "15px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > p",
+        "32px": "[data-node=\"settings\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "custom-expanded",
+    "width": 375,
+    "elements": 88,
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 21,
+      "999px": 2
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "17px": 14,
+      "13px": 14,
+      "15px": 8,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 37
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark",
+        "999px": "[data-node=\"scan/basic\"] > label.row:nth-child(3) > input"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"scan\"] > div.page-intro > p",
+        "32px": "[data-node=\"scan\"] > div.page-intro > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "filters-sheet",
+    "width": 375,
+    "elements": 105,
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 20
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 18,
+      "15px": 11,
+      "17px": 10,
+      "22px": 5,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 45
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "22px": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "32px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [
+      {
+        "target": "[data-node=\"app/header\"] > div.brand",
+        "ratio": 11.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/header\"] > span.connection",
+        "ratio": 5.77,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1",
+        "ratio": 11.78,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "ratio": 5.58,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "ratio": 13,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > small",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(2) > strong",
+        "ratio": 13,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(2) > small",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(3) > strong",
+        "ratio": 13,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(3) > small",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.toolbar:nth-child(3) > button > span",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.inline-actions:nth-child(4) > button.secondary:nth-child(1)",
+        "ratio": 5.81,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.inline-actions:nth-child(4) > button.secondary:nth-child(2)",
+        "ratio": 5.81,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > p.results-note",
+        "ratio": 5.58,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-heading:nth-child(1) > strong",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-meta:nth-child(2) > span:nth-child(1)",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-meta:nth-child(2) > span:nth-child(2)",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > b",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > b",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > b.good",
+        "ratio": 6.37,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > button",
+        "ratio": 5.81,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-heading:nth-child(1) > strong",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-meta:nth-child(2) > span:nth-child(1)",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-meta:nth-child(2) > span:nth-child(2)",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > b",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > b",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > b.good",
+        "ratio": 6.37,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > button",
+        "ratio": 5.81,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(1)",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(2)",
+        "ratio": 6.53,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(3)",
+        "ratio": 6.16,
+        "required": 4.5
+      }
+    ],
+    "hiddenText": 1,
+    "transitions": 0
+  },
+  {
+    "theme": "light",
+    "tab": "export-sheet",
+    "width": 375,
+    "elements": 98,
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 19
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 18,
+      "15px": 11,
+      "17px": 9,
+      "22px": 5,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 44
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "22px": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "32px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [
+      {
+        "target": "[data-node=\"app/header\"] > div.brand",
+        "ratio": 11.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/header\"] > span.connection",
+        "ratio": 5.77,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1",
+        "ratio": 11.78,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "ratio": 5.58,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "ratio": 13,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > small",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(2) > strong",
+        "ratio": 13,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(2) > small",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(3) > strong",
+        "ratio": 13,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(3) > small",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.toolbar:nth-child(3) > button > span",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.inline-actions:nth-child(4) > button.secondary:nth-child(1)",
+        "ratio": 5.81,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.inline-actions:nth-child(4) > button.secondary:nth-child(2)",
+        "ratio": 5.81,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > p.results-note",
+        "ratio": 5.58,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-heading:nth-child(1) > strong",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-meta:nth-child(2) > span:nth-child(1)",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-meta:nth-child(2) > span:nth-child(2)",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > b",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > b",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > b.good",
+        "ratio": 6.37,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > button",
+        "ratio": 5.81,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-heading:nth-child(1) > strong",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-meta:nth-child(2) > span:nth-child(1)",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-meta:nth-child(2) > span:nth-child(2)",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > b",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > b",
+        "ratio": 13,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > span",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > b.good",
+        "ratio": 6.37,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > button",
+        "ratio": 5.81,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(1)",
+        "ratio": 6.16,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(2)",
+        "ratio": 6.53,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(3)",
+        "ratio": 6.16,
+        "required": 4.5
+      }
+    ],
+    "hiddenText": 1,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "custom-expanded",
+    "width": 375,
+    "elements": 88,
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 21,
+      "999px": 2
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "17px": 14,
+      "13px": 14,
+      "15px": 8,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 37
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark",
+        "999px": "[data-node=\"scan/basic\"] > label.row:nth-child(3) > input"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"scan\"] > div.page-intro > p",
+        "32px": "[data-node=\"scan\"] > div.page-intro > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [],
+    "hiddenText": 0,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "filters-sheet",
+    "width": 375,
+    "elements": 105,
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 20
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 18,
+      "15px": 11,
+      "17px": 10,
+      "22px": 5,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 45
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "22px": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "32px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [
+      {
+        "target": "[data-node=\"app/header\"] > div.brand",
+        "ratio": 16.3,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/header\"] > span.connection",
+        "ratio": 11.71,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1",
+        "ratio": 16.3,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "ratio": 9.5,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "ratio": 13.35,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > small",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(2) > strong",
+        "ratio": 13.35,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(2) > small",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(3) > strong",
+        "ratio": 13.35,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(3) > small",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.toolbar:nth-child(3) > button > span",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.inline-actions:nth-child(4) > button.secondary:nth-child(1)",
+        "ratio": 5.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.inline-actions:nth-child(4) > button.secondary:nth-child(2)",
+        "ratio": 5.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > p.results-note",
+        "ratio": 9.5,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-heading:nth-child(1) > strong",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-meta:nth-child(2) > span:nth-child(1)",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-meta:nth-child(2) > span:nth-child(2)",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > b",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > b",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > b.good",
+        "ratio": 9.6,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > button",
+        "ratio": 5.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-heading:nth-child(1) > strong",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-meta:nth-child(2) > span:nth-child(1)",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-meta:nth-child(2) > span:nth-child(2)",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > b",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > b",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > b.good",
+        "ratio": 9.6,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > button",
+        "ratio": 5.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(1)",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(2)",
+        "ratio": 7.68,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(3)",
+        "ratio": 7.78,
+        "required": 4.5
+      }
+    ],
+    "hiddenText": 1,
+    "transitions": 0
+  },
+  {
+    "theme": "dark",
+    "tab": "export-sheet",
+    "width": 375,
+    "elements": 98,
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "content": 375,
+      "scrollbar": 0,
+      "gutter": 0,
+      "panel": "hidden",
+      "dpr": 1
+    },
+    "states": {},
+    "radii": {
+      "16px": 19
+    },
+    "shadows": {},
+    "rings": {},
+    "fontSizes": {
+      "13px": 18,
+      "15px": 11,
+      "17px": 9,
+      "22px": 5,
+      "32px": 1
+    },
+    "fontFamilies": {
+      "-apple-system": 44
+    },
+    "examples": {
+      "radii": {
+        "16px": "[data-node=\"app/header\"] > div.brand > span.brand-mark"
+      },
+      "shadows": {},
+      "rings": {},
+      "fontSizes": {
+        "13px": "[data-node=\"app/header\"] > span.connection",
+        "15px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "17px": "[data-node=\"app/header\"] > div.brand",
+        "22px": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "32px": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1"
+      },
+      "fontFamilies": {
+        "-apple-system": "[data-node=\"app/header\"] > div.brand"
+      }
+    },
+    "gradients": [],
+    "animated": [],
+    "contrastFailures": [],
+    "contrastUnknown": [],
+    "contrastApproximate": [
+      {
+        "target": "[data-node=\"app/header\"] > div.brand",
+        "ratio": 16.3,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/header\"] > span.connection",
+        "ratio": 11.71,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div.page-intro:nth-child(1) > h1",
+        "ratio": 16.3,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results\"] > div.page-intro:nth-child(1) > p",
+        "ratio": 9.5,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > strong",
+        "ratio": 13.35,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(1) > small",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(2) > strong",
+        "ratio": 13.35,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(2) > small",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(3) > strong",
+        "ratio": 13.35,
+        "required": 3
+      },
+      {
+        "target": "[data-node=\"results/summary\"] > div.stat:nth-child(3) > small",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.toolbar:nth-child(3) > button > span",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.inline-actions:nth-child(4) > button.secondary:nth-child(1)",
+        "ratio": 5.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > div.inline-actions:nth-child(4) > button.secondary:nth-child(2)",
+        "ratio": 5.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results\"] > div:nth-child(3) > p.results-note",
+        "ratio": 9.5,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-heading:nth-child(1) > strong",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-meta:nth-child(2) > span:nth-child(1)",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.result-meta:nth-child(2) > span:nth-child(2)",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > b",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > b",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > b.good",
+        "ratio": 9.6,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.1.1|443\"] > div.metric-row:nth-child(3) > button",
+        "ratio": 5.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-heading:nth-child(1) > strong",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-meta:nth-child(2) > span:nth-child(1)",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.result-meta:nth-child(2) > span:nth-child(2)",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(1) > b",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(2) > b",
+        "ratio": 13.35,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > span",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > div.metric:nth-child(3) > b.good",
+        "ratio": 9.6,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"results/ip-104.16.2.2|443\"] > div.metric-row:nth-child(3) > button",
+        "ratio": 5.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(1)",
+        "ratio": 7.78,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(2)",
+        "ratio": 7.68,
+        "required": 4.5
+      },
+      {
+        "target": "[data-node=\"app/navigation\"] > div > button:nth-child(3)",
+        "ratio": 7.78,
+        "required": 4.5
+      }
+    ],
+    "hiddenText": 1,
+    "transitions": 0
+  }
+]

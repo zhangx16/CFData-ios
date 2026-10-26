@@ -1,0 +1,10 @@
+{
+  "name": "cfdata-ios-ui-checks",
+  "private": true,
+  "scripts": {
+    "test:ui": "node tests/mobile-ui.test.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

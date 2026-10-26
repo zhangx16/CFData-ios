@@ -1,0 +1,2564 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <title>CFData · IP 优选</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --gap: 16px;
+        --fs: 17px;
+        --ratio: 1.294;
+        --measure: 640px;
+        --radius: 16px;
+        --ink: #243041;
+        --surface: #fbfcfe;
+        --line: #dbe2ea;
+        --edge: 1px;
+        --shadow: 0;
+        --room: 1.5;
+        --dur: 160ms;
+        --ease: cubic-bezier(0.2, 0, 0, 1);
+        --accent: #1d4ed8;
+        --bg: #eef1f5;
+        --secondary: #526174;
+        --tint: #e8effd;
+        --success: #076b4b;
+        --danger: #b42332;
+        --scrim: #0f172a66;
+        --small: 13px;
+        --label: 15px;
+        --title: 22px;
+        --large: 32px;
+        --tab-height: 68px;
+      }
+      :root[data-theme="dark"] {
+        --ink: #f1f5f9;
+        --surface: #1e293b;
+        --line: #42516a;
+        --bg: #0f172a;
+        --secondary: #b2bed0;
+        --accent: #9bbcff;
+        --tint: #263c63;
+        --success: #6ee7b7;
+        --danger: #ffabb5;
+        --scrim: #0009;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          var(--fs) / 1.5 -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        -webkit-text-size-adjust: 100%;
+        padding-bottom: calc(
+          var(--tab-height) + env(safe-area-inset-bottom) + var(--gap)
+        );
+        overflow-wrap: anywhere;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+        color: inherit;
+      }
+      button,
+      a,
+      input,
+      select,
+      textarea,
+      summary {
+        -webkit-tap-highlight-color: transparent;
+      }
+      button {
+        cursor: pointer;
+        touch-action: manipulation;
+      }
+      button:disabled {
+        cursor: default;
+        opacity: 0.48;
+      }
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible,
+      summary:focus-visible,
+      a:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+      }
+      button {
+        min-height: 44px;
+        border: 0;
+        background: none;
+        border-radius: var(--radius);
+        padding: 10px 14px;
+      }
+      input,
+      select,
+      textarea {
+        min-height: 44px;
+        max-width: 100%;
+        border: 0;
+        background: var(--bg);
+        border-radius: var(--radius);
+        padding: 10px 12px;
+        outline-offset: 2px;
+      }
+      input[type="number"] {
+        width: 110px;
+        text-align: right;
+      }
+      select {
+        max-width: 195px;
+      }
+      input[type="checkbox"] {
+        accent-color: var(--accent);
+        width: 24px;
+        height: 24px;
+        min-height: 24px;
+        margin: 0 10px;
+      }
+      textarea {
+        width: 100%;
+        resize: vertical;
+        line-height: 1.6;
+        min-height: 130px;
+      }
+      input[type="search"],
+      input[type="url"],
+      input[type="password"],
+      .wide-input {
+        width: 100%;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: var(--secondary);
+        opacity: 1;
+      }
+      fieldset {
+        min-width: 0;
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+      h1 {
+        font-size: var(--large);
+        line-height: 1.2;
+        letter-spacing: -1px;
+        font-weight: 750;
+      }
+      h2 {
+        font-size: var(--title);
+        line-height: 1.3;
+        letter-spacing: -0.3px;
+      }
+      h3 {
+        font-size: var(--fs);
+      }
+      small,
+      .meta {
+        font-size: var(--small);
+        color: var(--secondary);
+      }
+      a {
+        color: var(--accent);
+      }
+      svg.icon {
+        width: 22px;
+        height: 22px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex: none;
+      }
+      svg.sprite {
+        display: none;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      .shell {
+        max-width: var(--measure);
+        margin: auto;
+        padding: 0 var(--gap);
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--gap);
+        padding: 20px 0 var(--gap);
+      }
+      .brand {
+        font-weight: 750;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        letter-spacing: -0.5px;
+      }
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        background: var(--ink);
+        color: var(--surface);
+        border-radius: var(--radius);
+      }
+      .connection {
+        font-size: var(--small);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .connection:before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--secondary);
+      }
+      .connection.ready {
+        color: var(--success);
+      }
+      .connection.ready:before {
+        background: var(--success);
+      }
+      .page {
+        padding-bottom: var(--gap);
+      }
+      .page-intro {
+        margin: 8px 0 24px;
+      }
+      .page-intro p {
+        color: var(--secondary);
+        font-size: var(--label);
+        margin-top: 10px;
+      }
+      .group {
+        background: var(--surface);
+        border-radius: var(--radius);
+        margin-top: 12px;
+        overflow: hidden;
+      }
+      .group-title {
+        font-size: var(--label);
+        font-weight: 650;
+        color: var(--secondary);
+        margin: 24px 4px 8px;
+      }
+      .row {
+        min-height: 62px;
+        padding: 12px var(--gap);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .row + .row,
+      .group > .block + .block {
+        border-top: var(--edge) solid var(--line);
+      }
+      .row-label {
+        min-width: 0;
+        flex: 1;
+      }
+      .row-label small {
+        display: block;
+        margin-top: 3px;
+      }
+      .block {
+        padding: var(--gap);
+      }
+      .block label {
+        display: block;
+        margin-bottom: 8px;
+      }
+      .block small {
+        display: block;
+        margin-top: 8px;
+      }
+      .segmented {
+        display: flex;
+        background: var(--line);
+        padding: 4px;
+        border-radius: var(--radius);
+        gap: 4px;
+      }
+      .segmented button {
+        flex: 1;
+        min-width: 0;
+        font-size: var(--label);
+        padding: 9px 8px;
+        min-height: 44px;
+      }
+      .segmented button[aria-pressed="true"] {
+        background: var(--surface);
+        font-weight: 650;
+      }
+      .choice {
+        display: flex;
+        gap: 4px;
+        background: var(--bg);
+        border-radius: var(--radius);
+        padding: 2px;
+      }
+      .choice button {
+        min-width: 58px;
+        font-size: var(--label);
+        padding: 8px;
+      }
+      .choice button[aria-pressed="true"] {
+        background: var(--accent);
+        color: var(--surface);
+      }
+      :root[data-theme="dark"] .choice button[aria-pressed="true"] {
+        color: var(--bg);
+      }
+      .helper {
+        color: var(--secondary);
+        font-size: var(--small);
+        margin: 10px 4px 0;
+        line-height: 1.6;
+      }
+      .primary {
+        background: var(--accent);
+        color: #fff;
+        font-weight: 650;
+      }
+      .secondary {
+        background: var(--tint);
+        color: var(--accent);
+        font-weight: 650;
+      }
+      .quiet {
+        color: var(--accent);
+      }
+      .danger {
+        color: var(--danger);
+      }
+      .full {
+        width: 100%;
+      }
+      .inline-actions {
+        display: flex;
+        gap: 8px;
+      }
+      .inline-actions > * {
+        flex: 1;
+        min-width: 0;
+      }
+      .file-button {
+        border: var(--edge) dashed var(--line);
+        width: 100%;
+        margin-top: 8px;
+        color: var(--accent);
+        font-weight: 650;
+      }
+      summary {
+        min-height: 56px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px var(--gap);
+        font-size: var(--label);
+        list-style: none;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary:after {
+        content: "＋";
+        font-size: var(--fs);
+        color: var(--secondary);
+      }
+      details[open] > summary:after {
+        content: "−";
+      }
+      details[open] > summary {
+        border-bottom: var(--edge) solid var(--line);
+      }
+      .scan-page {
+        padding-bottom: 112px;
+      }
+      .action-dock {
+        position: fixed;
+        z-index: 5;
+        bottom: calc(var(--tab-height) + env(safe-area-inset-bottom));
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(100%, var(--measure));
+        background: var(--bg);
+        padding: 12px var(--gap) 14px;
+      }
+      .action-dock button {
+        min-height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .action-dock .meta {
+        text-align: center;
+        margin-top: 6px;
+      }
+      .tabbar {
+        position: fixed;
+        z-index: 6;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        padding-bottom: env(safe-area-inset-bottom);
+        border-top: var(--edge) solid var(--line);
+      }
+      .tabbar > div {
+        max-width: var(--measure);
+        margin: auto;
+        display: flex;
+        height: var(--tab-height);
+      }
+      .tabbar button {
+        flex: 1;
+        border-radius: 0;
+        padding: 8px;
+        color: var(--secondary);
+        font-size: var(--small);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+      }
+      .tabbar button[aria-current="page"] {
+        color: var(--accent);
+        font-weight: 650;
+      }
+      .status-panel {
+        padding: var(--gap);
+        background: var(--tint);
+        border-radius: var(--radius);
+        margin-bottom: 16px;
+      }
+      .status-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: var(--label);
+        font-weight: 650;
+      }
+      .progress {
+        height: 5px;
+        border-radius: 999px;
+        background: var(--line);
+        margin: 12px 0;
+        overflow: hidden;
+      }
+      .progress > span {
+        display: block;
+        height: 100%;
+        background: var(--accent);
+        width: 0;
+        transition: width var(--dur) var(--ease);
+      }
+      .status-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: var(--small);
+        gap: 8px;
+      }
+      .status-bottom button {
+        padding: 0 8px;
+        margin: -6px 0;
+        color: var(--accent);
+        min-height: 32px;
+      }
+      .stats {
+        display: flex;
+        gap: 8px;
+        padding: 18px var(--gap);
+        background: var(--surface);
+        border-radius: var(--radius);
+        margin-bottom: 16px;
+      }
+      .stat {
+        flex: 1;
+        min-width: 0;
+      }
+      .stat + .stat {
+        border-left: var(--edge) solid var(--line);
+        padding-left: 12px;
+      }
+      .stat strong {
+        display: block;
+        font-size: var(--title);
+        letter-spacing: -0.5px;
+        white-space: nowrap;
+      }
+      .stat small {
+        font-size: var(--small);
+      }
+      .toolbar {
+        display: flex;
+        gap: 8px;
+        margin: 12px 0;
+        align-items: center;
+      }
+      .toolbar select {
+        flex: 1;
+        min-width: 0;
+        max-width: none;
+        background: var(--surface);
+      }
+      .toolbar button {
+        background: var(--surface);
+        font-size: var(--label);
+      }
+      .toolbar svg {
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+      .empty {
+        padding: 48px 20px;
+        text-align: center;
+        color: var(--secondary);
+      }
+      .empty > svg {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 16px;
+        color: var(--accent);
+      }
+      .empty h2 {
+        color: var(--ink);
+        font-size: var(--title);
+        margin-bottom: 10px;
+      }
+      .empty p {
+        font-size: var(--label);
+        max-width: 280px;
+        margin: 0 auto 20px;
+      }
+      .result-list {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .result-card {
+        background: var(--surface);
+        border-radius: var(--radius);
+        padding: var(--gap);
+      }
+      .result-heading {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+      .result-heading strong {
+        font-size: var(--fs);
+        font-variant-numeric: tabular-nums;
+        flex: 1;
+        min-width: 0;
+        word-break: break-all;
+      }
+      .copy-button {
+        padding: 8px;
+        min-width: 44px;
+        flex: none;
+        color: var(--secondary);
+      }
+      .result-meta {
+        font-size: var(--small);
+        color: var(--secondary);
+        margin: 0 0 12px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .metric-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .metric {
+        flex: 1;
+        min-width: 0;
+      }
+      .metric span {
+        display: block;
+        font-size: var(--small);
+        color: var(--secondary);
+      }
+      .metric b {
+        font-size: var(--label);
+        font-weight: 650;
+        white-space: nowrap;
+      }
+      .metric .good {
+        color: var(--success);
+      }
+      .row-speed {
+        font-size: var(--label);
+        background: var(--tint);
+        color: var(--accent);
+        padding: 9px 12px;
+      }
+      .results-note {
+        font-size: var(--small);
+        color: var(--secondary);
+        margin: 12px 0;
+      }
+      .no-results {
+        padding: 28px 16px;
+        text-align: center;
+        color: var(--secondary);
+      }
+      .dc-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .dc-list button {
+        background: var(--surface);
+        color: var(--accent);
+        font-size: var(--label);
+        border: var(--edge) solid var(--line);
+      }
+      .logs {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 360px;
+        overflow: auto;
+      }
+      .logs li {
+        font-size: var(--small);
+        padding: 10px var(--gap);
+        border-bottom: var(--edge) solid var(--line);
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .logs time {
+        color: var(--secondary);
+        margin-right: 10px;
+      }
+      .error-text {
+        color: var(--danger);
+      }
+      .about {
+        margin: 24px 4px;
+        font-size: var(--small);
+        color: var(--secondary);
+        line-height: 1.8;
+      }
+      .about a {
+        display: inline-block;
+        min-height: 32px;
+        padding: 5px 0;
+      }
+      .toast {
+        position: fixed;
+        z-index: 20;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: calc(var(--tab-height) + env(safe-area-inset-bottom) + 100px);
+        width: max-content;
+        max-width: calc(100% - 32px);
+        border-radius: var(--radius);
+        background: var(--ink);
+        color: var(--surface);
+        padding: 12px 18px;
+        font-size: var(--label);
+        box-shadow: 0 6px 24px #0002;
+        pointer-events: none;
+      }
+      dialog {
+        border: 0;
+        border-radius: var(--radius) var(--radius) 0 0;
+        background: var(--surface);
+        color: var(--ink);
+        width: min(100%, var(--measure));
+        max-width: 100%;
+        max-height: 85dvh;
+        margin: auto auto 0;
+        padding: 0 0 calc(var(--gap) + env(safe-area-inset-bottom));
+        overflow-y: auto;
+      }
+      dialog::backdrop {
+        background: var(--scrim);
+      }
+      .sheet-head {
+        padding: 14px var(--gap);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: var(--edge) solid var(--line);
+        gap: 8px;
+      }
+      .sheet-head button {
+        font-size: var(--title);
+        min-width: 44px;
+        padding: 4px;
+      }
+      .sheet-actions {
+        padding: var(--gap);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .sheet-description {
+        font-size: var(--label);
+        color: var(--secondary);
+        padding: var(--gap);
+      }
+      .filter-active {
+        color: var(--accent);
+        font-weight: 650;
+      }
+      .setting-copy {
+        max-width: 230px;
+      }
+      .subtext {
+        margin-top: 6px;
+        font-size: var(--label);
+        color: var(--secondary);
+      }
+      @media (min-width: 768px) {
+        .shell {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+        .action-dock {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+      :root[data-theme="dark"] .primary {
+        color: #0f172a;
+      }
+
+      .sr-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      input::-webkit-inner-spin-button,
+      input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .row input[role="switch"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 46px;
+        height: 28px;
+        min-height: 28px;
+        background: var(--line);
+        border-radius: 999px;
+        position: relative;
+        padding: 0;
+        flex: none;
+        margin: 0;
+      }
+      .row input[role="switch"]::before {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 3px;
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: #fff;
+        transition: transform var(--dur) var(--ease);
+      }
+      .row input[role="switch"]:checked {
+        background: var(--accent);
+      }
+      .row input[role="switch"]:checked::before {
+        transform: translateX(18px);
+      }
+
+      select {
+        -webkit-appearance: none;
+        appearance: none;
+        padding-right: 32px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23526174' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+      }
+      :root[data-theme="dark"] select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23b2bed0' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <defs>
+        <symbol id="i-scan" viewBox="0 0 24 24">
+          <path
+            d="M4 8V4h4m8 0h4v4m0 8v4h-4M8 20H4v-4M4 12h16M8 9v6m4-8v10m4-8v6"
+          />
+        </symbol>
+        <symbol id="i-list" viewBox="0 0 24 24">
+          <path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01" />
+        </symbol>
+        <symbol id="i-settings" viewBox="0 0 24 24">
+          <path d="M4 7h16M4 17h16M8 4v6m8 4v6" />
+        </symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24">
+          <rect x="8" y="8" width="12" height="12" rx="2" />
+          <path d="M15 8V4H4v11h4" />
+        </symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="i-filter" viewBox="0 0 24 24">
+          <path d="M4 6h16M7 12h10m-7 6h4" />
+        </symbol>
+      </defs>
+    </svg>
+    <div class="shell">
+      <header class="topbar" data-node="app/header">
+        <div class="brand">
+          <span class="brand-mark"
+            ><svg class="icon" aria-hidden="true">
+              <use href="#i-scan" /></svg></span
+          >CFData
+        </div>
+        <span id="connection" class="connection" role="status">正在连接</span>
+      </header>
+      <section
+        class="status-panel"
+        id="taskPanel"
+        data-node="task/progress"
+        hidden
+        aria-label="任务进度"
+      >
+        <div class="status-top">
+          <span id="taskLabel">正在扫描</span><span id="taskPercent">0%</span>
+        </div>
+        <div
+          class="progress"
+          role="progressbar"
+          aria-label="当前任务进度"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          id="progress"
+        >
+          <span id="progressFill"></span>
+        </div>
+        <div class="status-bottom">
+          <span id="taskCount">正在准备…</span
+          ><button type="button" data-go="results">查看结果 →</button>
+        </div>
+      </section>
+      <main>
+        <section
+          class="page scan-page"
+          id="page-scan"
+          data-node="scan"
+          aria-labelledby="scanTitle"
+        >
+          <div class="page-intro">
+            <h1 id="scanTitle">IP 优选</h1>
+            <p>测一测当前网络，留下更稳定的连接。</p>
+          </div>
+          <form id="scanForm">
+            <fieldset id="scanFields">
+              <div
+                class="segmented"
+                data-node="scan/mode"
+                role="group"
+                aria-label="优选来源"
+              >
+                <button type="button" data-mode="official" aria-pressed="true">
+                  Cloudflare 官方</button
+                ><button type="button" data-mode="custom" aria-pressed="false">
+                  自定义 IP
+                </button>
+              </div>
+              <p class="helper" id="modeHelp">
+                从官方地址段中扫描，再按延迟和速度筛选。
+              </p>
+              <section id="customInput" hidden data-node="scan/custom-input">
+                <h2 class="group-title">测试目标</h2>
+                <div class="group">
+                  <div class="block">
+                    <div class="segmented" role="group" aria-label="导入方式">
+                      <button
+                        type="button"
+                        data-input="paste"
+                        aria-pressed="true"
+                      >
+                        粘贴 / 文件</button
+                      ><button
+                        type="button"
+                        data-input="url"
+                        aria-pressed="false"
+                      >
+                        网络地址
+                      </button>
+                    </div>
+                  </div>
+                  <div class="block" id="pasteInput">
+                    <label for="targets">IP 或域名列表</label
+                    ><textarea
+                      id="targets"
+                      spellcheck="false"
+                      autocapitalize="off"
+                      placeholder="每行一个目标，例如：&#10;1.1.1.1 443&#10;[2606:4700::1111] 443"
+                    ></textarea
+                    ><button class="file-button" type="button" id="importFile">
+                      从“文件”导入 TXT / CSV</button
+                    ><input
+                      type="file"
+                      id="fileInput"
+                      accept=".txt,.csv,text/plain,text/csv"
+                      hidden
+                    /><small id="fileName"
+                      >支持 IP、域名，以及自定义端口。</small
+                    >
+                  </div>
+                  <div class="block" id="urlInput" hidden>
+                    <label for="sourceURL">列表地址</label
+                    ><input
+                      id="sourceURL"
+                      type="url"
+                      inputmode="url"
+                      autocapitalize="off"
+                      placeholder="https://example.com/ips.txt"
+                    /><small>从该地址下载列表后，在本机执行测试。</small>
+                  </div>
+                </div>
+              </section>
+              <h2 class="group-title">基本设置</h2>
+              <div class="group" data-node="scan/basic">
+                <div class="row" id="ipTypeRow">
+                  <span class="row-label">IP 类型</span>
+                  <div class="choice" role="group" aria-label="IP 类型">
+                    <button type="button" data-ip="4" aria-pressed="true">
+                      IPv4</button
+                    ><button type="button" data-ip="6" aria-pressed="false">
+                      IPv6
+                    </button>
+                  </div>
+                </div>
+                <label class="row" for="port"
+                  ><span class="row-label">测试端口</span
+                  ><input
+                    id="port"
+                    type="number"
+                    min="1"
+                    max="65535"
+                    inputmode="numeric"
+                    value="443"
+                    required
+                /></label>
+                <label class="row" for="autoSpeed"
+                  ><span class="row-label"
+                    >自动测速<small>扫描后继续测试延迟与下载速度</small></span
+                  ><input id="autoSpeed" type="checkbox" role="switch" checked
+                /></label>
+                <label class="row" for="delay"
+                  ><span class="row-label"
+                    >延迟上限<small>单位 ms，0 表示不限</small></span
+                  ><input
+                    id="delay"
+                    type="number"
+                    min="0"
+                    max="30000"
+                    value="500"
+                    inputmode="numeric"
+                    required
+                /></label>
+                <label class="row" for="speedLimit"
+                  ><span class="row-label"
+                    >测速合格数量<small>达到数量后停止下载测速</small></span
+                  ><input
+                    id="speedLimit"
+                    type="number"
+                    min="1"
+                    max="100"
+                    value="5"
+                    inputmode="numeric"
+                    required
+                /></label>
+              </div>
+              <details class="group" data-node="scan/advanced">
+                <summary>高级参数</summary>
+                <label class="row" for="threads"
+                  ><span class="row-label"
+                    >扫描并发<small>手机端建议 20，减少资源占用</small></span
+                  ><input
+                    id="threads"
+                    type="number"
+                    min="1"
+                    max="100"
+                    value="20"
+                    inputmode="numeric"
+                    required
+                /></label>
+                <label class="row" for="scanMode"
+                  ><span class="row-label">延迟测量方式</span
+                  ><select id="scanMode">
+                    <option value="tcping">TCP 握手</option>
+                    <option value="httping">HTTP 首字节</option>
+                  </select></label
+                >
+                <div class="block">
+                  <label for="targetDC">指定数据中心（选填）</label
+                  ><input
+                    id="targetDC"
+                    class="wide-input"
+                    maxlength="16"
+                    placeholder="例如 HKG，留空自动选择"
+                    autocapitalize="characters"
+                  /><small>官方模式中用于选择后续详细测试的节点。</small>
+                </div>
+                <label class="row" for="tls"
+                  ><span class="row-label">自定义目标使用 TLS</span
+                  ><input id="tls" type="checkbox" role="switch" checked
+                /></label>
+                <label class="row" for="resultLimit"
+                  ><span class="row-label">自定义扫描结果上限</span
+                  ><input
+                    id="resultLimit"
+                    type="number"
+                    min="1"
+                    max="10000"
+                    value="1000"
+                    inputmode="numeric"
+                    required
+                /></label>
+                <div class="block">
+                  <label for="probe">链路复验域名（选填）</label
+                  ><input
+                    id="probe"
+                    class="wide-input"
+                    placeholder="填写你使用的探针域名"
+                    autocapitalize="off"
+                    spellcheck="false"
+                  /><small>仅自定义模式使用；留空时不进行额外链路复验。</small>
+                </div>
+              </details>
+              <p class="helper">
+                测试使用手机当前网络。切到后台或锁屏会停止任务；下载测速会消耗流量。
+              </p>
+            </fieldset>
+          </form>
+        </section>
+        <section
+          class="page"
+          id="page-results"
+          data-node="results"
+          aria-labelledby="resultsTitle"
+          hidden
+        >
+          <div class="page-intro">
+            <h1 id="resultsTitle">测试结果</h1>
+            <p id="resultSubtitle">每一次测试，都从你的当前网络出发。</p>
+          </div>
+          <div class="stats" data-node="results/summary">
+            <div class="stat">
+              <strong id="statCount">—</strong><small>有效 IP</small>
+            </div>
+            <div class="stat">
+              <strong id="statLatency">—</strong><small>最低延迟 · ms</small>
+            </div>
+            <div class="stat">
+              <strong id="statSpeed">—</strong><small>最高 · MB/s</small>
+            </div>
+          </div>
+          <div id="resultTools" hidden>
+            <label class="sr-label" for="search">搜索 IP、地区或数据中心</label
+            ><input
+              id="search"
+              type="search"
+              placeholder="搜索 IP、地区或数据中心"
+              autocapitalize="off"
+              spellcheck="false"
+            />
+            <div class="toolbar">
+              <select id="sort" aria-label="结果排序">
+                <option value="latency">延迟从低到高</option>
+                <option value="speed">速度从高到低</option>
+                <option value="loss">失败率从低到高</option></select
+              ><button type="button" id="openFilters">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-filter" /></svg
+                ><span>筛选</span>
+              </button>
+            </div>
+            <div class="inline-actions">
+              <button type="button" class="secondary" id="batchSpeed" data-idle>
+                批量测速</button
+              ><button type="button" class="secondary" id="openExport">
+                导出结果
+              </button>
+            </div>
+            <div
+              id="dataCenters"
+              class="dc-list"
+              aria-label="选择数据中心进行详细测试"
+            ></div>
+            <p class="results-note" id="resultCount"></p>
+          </div>
+          <div class="empty" id="emptyResults" data-node="results/empty">
+            <svg class="icon" aria-hidden="true"><use href="#i-list" /></svg>
+            <h2>好连接，测出来</h2>
+            <p>开始一次优选，延迟和下载速度会出现在这里。</p>
+            <button type="button" class="secondary" data-go="scan">
+              开始第一次优选
+            </button>
+          </div>
+          <div
+            id="resultList"
+            class="result-list"
+            data-node="results/list"
+          ></div>
+          <button id="loadMore" class="quiet full" type="button" hidden>
+            显示更多结果
+          </button>
+        </section>
+        <section
+          class="page"
+          id="page-settings"
+          data-node="settings"
+          aria-labelledby="settingsTitle"
+          hidden
+        >
+          <div class="page-intro">
+            <h1 id="settingsTitle">设置</h1>
+            <p>常用偏好会保存在这台设备上。</p>
+          </div>
+          <h2 class="group-title">测速偏好</h2>
+          <div class="group" data-node="settings/speed">
+            <label class="row" for="speedSource"
+              ><span class="row-label">下载测速源</span
+              ><select id="speedSource">
+                <option value="auto">自动选择</option>
+                <option value="cloudflare">Cloudflare</option>
+                <option value="custom">自定义网址</option>
+              </select></label
+            >
+            <div class="block" id="customSpeedSource" hidden>
+              <label for="speedURL">测速网址</label
+              ><input
+                id="speedURL"
+                type="url"
+                placeholder="https://example.com/file"
+                autocapitalize="off"
+              /><small>指定下载目标，测速时连接你选中的 IP。</small>
+            </div>
+            <label class="row" for="speedMin"
+              ><span class="row-label"
+                >合格速度下限<small>单位 MB/s</small></span
+              ><input
+                id="speedMin"
+                type="number"
+                min="0"
+                step="0.1"
+                value="0.1"
+                required
+                inputmode="decimal" /></label
+            ><label class="row" for="theme"
+              ><span class="row-label">外观</span
+              ><select id="theme">
+                <option value="system">跟随系统</option>
+                <option value="light">浅色</option>
+                <option value="dark">深色</option>
+              </select></label
+            >
+          </div>
+          <h2 class="group-title">连接与数据</h2>
+          <div class="group">
+            <div class="row">
+              <span class="row-label">本机服务</span
+              ><span class="meta" id="serviceStatus">正在连接</span>
+            </div>
+            <button type="button" class="row full quiet" id="reconnect">
+              重新连接本机服务 <span aria-hidden="true">↻</span></button
+            ><button
+              type="button"
+              class="row full danger"
+              id="clearResults"
+              data-idle
+            >
+              清除已保存的测试结果
+            </button>
+          </div>
+          <details class="group" data-node="settings/proxy">
+            <summary>管理面代理</summary>
+            <div class="block">
+              <label for="proxy">代理地址</label
+              ><input
+                id="proxy"
+                type="password"
+                placeholder="socks5://127.0.0.1:1080"
+                autocomplete="off"
+              /><small
+                >用于数据下载和上传；IP 扫描及测速保持直连。<span
+                  id="proxyStatus"
+                ></span
+              ></small>
+              <div class="inline-actions" style="margin-top: 12px">
+                <button
+                  type="button"
+                  id="saveProxy"
+                  class="secondary"
+                  data-idle
+                >
+                  保存代理</button
+                ><button type="button" id="clearProxy" class="quiet" data-idle>
+                  清除代理
+                </button>
+              </div>
+            </div>
+          </details>
+          <details class="group" data-node="settings/github">
+            <summary>GitHub 上传设置</summary>
+            <div class="block">
+              <label for="ghRepo">目标仓库</label
+              ><input
+                id="ghRepo"
+                class="wide-input"
+                placeholder="owner/repo"
+                autocapitalize="off"
+                spellcheck="false"
+              />
+            </div>
+            <div class="block">
+              <label for="ghBranch">分支</label
+              ><input
+                id="ghBranch"
+                class="wide-input"
+                value="main"
+                autocapitalize="off"
+              />
+            </div>
+            <div class="block">
+              <label for="ghPath">文件路径</label
+              ><input
+                id="ghPath"
+                class="wide-input"
+                value="results/ip.csv"
+                autocapitalize="off"
+              />
+            </div>
+            <div class="block">
+              <label for="ghToken">访问令牌</label
+              ><input
+                id="ghToken"
+                type="password"
+                autocomplete="off"
+                placeholder="本次打开应用期间有效"
+              /><small
+                >令牌仅保留在当前页面内存中，不写入本地存储。上传需在结果页手动确认。</small
+              >
+            </div>
+          </details>
+          <details class="group" data-node="settings/logs">
+            <summary>运行记录 <span id="logCount">0 条</span></summary>
+            <ul id="logs" class="logs">
+              <li>尚无运行记录。</li>
+            </ul>
+          </details>
+          <div class="about" data-node="settings/about">
+            <strong>CFData for iOS <span id="version"></span></strong>
+            <p>
+              在本机测试 Cloudflare IP。界面与测量结果均不代表 VPN 连接状态。
+            </p>
+            <a
+              href="https://github.com/zhangx16/CFData-ios"
+              target="_blank"
+              rel="noopener"
+              >项目源码与版本更新 ↗</a
+            >
+            <p>基于 PoemMisty/CFData-WEB · GPL-3.0-or-later</p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="action-dock" id="actionDock" data-node="scan/start">
+      <button class="primary full" id="startButton" type="button" disabled>
+        <svg class="icon" aria-hidden="true"><use href="#i-scan" /></svg
+        ><span id="startLabel">正在连接本机服务…</span>
+      </button>
+      <p class="meta" id="startHint">扫描 → 延迟测试 → 下载测速</p>
+    </div>
+    <nav class="tabbar" aria-label="主导航" data-node="app/navigation">
+      <div>
+        <button type="button" data-go="scan" aria-current="page">
+          <svg class="icon" aria-hidden="true"><use href="#i-scan" /></svg
+          >优选</button
+        ><button type="button" data-go="results">
+          <svg class="icon" aria-hidden="true"><use href="#i-list" /></svg
+          >结果</button
+        ><button type="button" data-go="settings">
+          <svg class="icon" aria-hidden="true"><use href="#i-settings" /></svg
+          >设置
+        </button>
+      </div>
+    </nav>
+    <dialog
+      id="filterSheet"
+      aria-labelledby="filterTitle"
+      data-node="results/filters"
+    >
+      <div class="sheet-head">
+        <h2 id="filterTitle">筛选结果</h2>
+        <button type="button" data-close aria-label="关闭筛选">×</button>
+      </div>
+      <label class="row" for="filterDelay"
+        ><span>延迟不超过 · ms</span
+        ><input
+          id="filterDelay"
+          type="number"
+          min="0"
+          placeholder="不限"
+          inputmode="numeric" /></label
+      ><label class="row" for="filterLoss"
+        ><span>连接失败率不超过 · %</span
+        ><input
+          id="filterLoss"
+          type="number"
+          min="0"
+          max="100"
+          placeholder="不限"
+          inputmode="decimal" /></label
+      ><label class="row" for="onlyQualified"
+        ><span>只显示测速达标的 IP</span
+        ><input id="onlyQualified" type="checkbox"
+      /></label>
+      <p class="sheet-description">
+        失败率为重复连接测试的失败比例，非 ICMP 丢包率。未测量对应指标的 IP
+        不满足该项筛选。
+      </p>
+      <div class="sheet-actions">
+        <button type="button" class="primary" id="applyFilters">应用筛选</button
+        ><button type="button" class="quiet" id="resetFilters">重置筛选</button>
+      </div>
+    </dialog>
+    <dialog
+      id="exportSheet"
+      aria-labelledby="exportTitle"
+      data-node="results/export"
+    >
+      <div class="sheet-head">
+        <h2 id="exportTitle">导出结果</h2>
+        <button type="button" data-close aria-label="关闭导出">×</button>
+      </div>
+      <p class="sheet-description" id="exportDescription">
+        导出当前筛选后的结果。
+      </p>
+      <div class="sheet-actions">
+        <button type="button" class="primary" data-export="csv">
+          导出 CSV 表格</button
+        ><button type="button" class="secondary" data-export="txt">
+          导出 IP:端口 列表</button
+        ><button type="button" class="quiet" id="copyResults">
+          复制 IP:端口 列表</button
+        ><button type="button" class="quiet" id="uploadGitHub">
+          上传 CSV 到 GitHub
+        </button>
+      </div>
+    </dialog>
+    <dialog
+      id="noticeSheet"
+      aria-labelledby="noticeTitle"
+      data-node="app/notice"
+    >
+      <div class="sheet-head">
+        <h2 id="noticeTitle">提示</h2>
+        <button type="button" data-close aria-label="关闭提示">×</button>
+      </div>
+      <p id="noticeText" class="sheet-description"></p>
+      <div id="noticeActions" class="sheet-actions"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <script>
+      (() => {
+        "use strict";
+        const $ = (id) => document.getElementById(id);
+        const configIDs = [
+          "port",
+          "autoSpeed",
+          "delay",
+          "speedLimit",
+          "threads",
+          "scanMode",
+          "targetDC",
+          "tls",
+          "resultLimit",
+          "probe",
+          "speedSource",
+          "speedURL",
+          "speedMin",
+          "theme",
+          "ghRepo",
+          "ghBranch",
+          "ghPath",
+        ];
+        const state = {
+          page: "scan",
+          mode: "official",
+          input: "paste",
+          ipType: 4,
+          connected: false,
+          running: false,
+          stopping: false,
+          phase: "",
+          pipeline: false,
+          pending: null,
+          rows: new Map(),
+          tests: new Map(),
+          dcs: [],
+          resultMode: "official",
+          logs: [],
+          limit: 50,
+          filters: { delay: null, loss: null, qualified: false },
+          lastRun: null,
+          fileName: "targets.txt",
+          error: false,
+          taskConfig: null,
+        };
+        let socket,
+          reconnectTimer,
+          renderTimer,
+          saveTimer,
+          toastTimer,
+          sessionNumber = 0,
+          uploadPending = false;
+        const native = (body) => {
+          if (window.webkit?.messageHandlers?.cfdata) {
+            window.webkit.messageHandlers.cfdata.postMessage(body);
+            return true;
+          }
+          return false;
+        };
+        const escape = (v) =>
+          String(v ?? "").replace(
+            /[&<>"']/g,
+            (c) =>
+              ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;",
+              })[c],
+          );
+        const icon = (id) =>
+          `<svg class="icon" aria-hidden="true"><use href="#i-${id}"/></svg>`;
+        const numeric = (v) => {
+          const n = parseFloat(v);
+          return Number.isFinite(n) ? n : null;
+        };
+        const fixed = (n) =>
+          n === null || !Number.isFinite(n)
+            ? "—"
+            : n % 1
+              ? n.toFixed(1)
+              : String(n);
+        const num = (id) => Number($(id).value);
+        const endpoint = (row) =>
+          (row.ip.includes(":") ? "[" + row.ip + "]" : row.ip) + ":" + row.port;
+        const key = (row) => row.ip + "|" + row.port;
+        function toast(text) {
+          $("toast").textContent = text;
+          $("toast").hidden = false;
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => ($("toast").hidden = true), 3000);
+        }
+        function notice(text, title = "提示", action) {
+          const d = $("noticeSheet");
+          $("noticeTitle").textContent = title;
+          $("noticeText").textContent = text;
+          $("noticeActions").replaceChildren();
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = action ? "primary" : "secondary";
+          b.textContent = action ? "确认" : "知道了";
+          b.onclick = () => {
+            d.close();
+            action?.();
+          };
+          $("noticeActions").append(b);
+          if (!d.open) d.showModal();
+        }
+        function showPage(page) {
+          state.page = page;
+          for (const p of ["scan", "results", "settings"])
+            $("page-" + p).hidden = p !== page;
+          document.querySelectorAll(".tabbar [data-go]").forEach((b) => {
+            if (b.dataset.go === page) b.setAttribute("aria-current", "page");
+            else b.removeAttribute("aria-current");
+          });
+          $("actionDock").hidden = page !== "scan";
+          window.scrollTo(0, 0);
+          if (page === "results") renderResults();
+        }
+        function theme() {
+          const value = $("theme").value;
+          document.documentElement.dataset.theme =
+            value === "system"
+              ? matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light"
+              : value;
+          native({ type: "theme", value });
+        }
+        function syncForm() {
+          document
+            .querySelectorAll("[data-mode]")
+            .forEach((b) =>
+              b.setAttribute(
+                "aria-pressed",
+                String(b.dataset.mode === state.mode),
+              ),
+            );
+          document
+            .querySelectorAll("[data-input]")
+            .forEach((b) =>
+              b.setAttribute(
+                "aria-pressed",
+                String(b.dataset.input === state.input),
+              ),
+            );
+          document
+            .querySelectorAll("[data-ip]")
+            .forEach((b) =>
+              b.setAttribute(
+                "aria-pressed",
+                String(Number(b.dataset.ip) === state.ipType),
+              ),
+            );
+          $("customInput").hidden = state.mode !== "custom";
+          $("ipTypeRow").hidden = state.mode !== "official";
+          $("pasteInput").hidden = state.input !== "paste";
+          $("urlInput").hidden = state.input !== "url";
+          $("customSpeedSource").hidden = $("speedSource").value !== "custom";
+          $("modeHelp").textContent =
+            state.mode === "official"
+              ? "从官方地址段中扫描，再按延迟和速度筛选。"
+              : "测试你提供的 IP 或域名，连接从这台设备发起。";
+          $("startHint").textContent = $("autoSpeed").checked
+            ? "扫描 → 延迟测试 → 下载测速"
+            : "仅扫描与延迟测试，不下载测速文件";
+          theme();
+          saveConfig();
+          renderControls();
+        }
+        function saveConfig() {
+          try {
+            const data = {
+              mode: state.mode,
+              input: state.input,
+              ipType: state.ipType,
+            };
+            for (const id of configIDs)
+              data[id] =
+                $(id).type === "checkbox" ? $(id).checked : $(id).value;
+            localStorage.setItem(
+              "cfdata-mobile-config-v1",
+              JSON.stringify(data),
+            );
+          } catch {}
+        }
+        function restore() {
+          try {
+            const d = JSON.parse(
+              localStorage.getItem("cfdata-mobile-config-v1") || "null",
+            );
+            if (d) {
+              for (const id of configIDs)
+                if (id in d) {
+                  if ($(id).type === "checkbox") $(id).checked = !!d[id];
+                  else $(id).value = d[id];
+                }
+              state.mode = d.mode === "custom" ? "custom" : "official";
+              state.input = d.input === "url" ? "url" : "paste";
+              state.ipType = d.ipType === 6 ? 6 : 4;
+            }
+            const r = JSON.parse(
+              localStorage.getItem("cfdata-mobile-results-v1") || "null",
+            );
+            if (r && Array.isArray(r.rows)) {
+              state.resultMode = r.mode === "custom" ? "custom" : "official";
+              state.lastRun = r.date;
+              for (const row of r.rows)
+                if (row && typeof row.ip === "string") {
+                  state.rows.set(key(row), row);
+                  if (!row.custom && typeof row.raw?.AvgLatency === "number")
+                    state.tests.set(key(row), row.raw);
+                }
+              state.taskConfig = r.config || null;
+            }
+          } catch {}
+        }
+        function flushResults() {
+          clearTimeout(saveTimer);
+          try {
+            localStorage.setItem(
+              "cfdata-mobile-results-v1",
+              JSON.stringify({
+                mode: state.resultMode,
+                date: state.lastRun,
+                config: state.taskConfig,
+                rows: [...state.rows.values()].slice(0, 1000),
+              }),
+            );
+          } catch {}
+        }
+        function saveResults() {
+          clearTimeout(saveTimer);
+          saveTimer = setTimeout(flushResults, 400);
+        }
+        function log(text, error = false) {
+          state.logs.push({
+            time: new Date().toLocaleTimeString("zh-CN", { hour12: false }),
+            text: String(text),
+            error,
+          });
+          if (state.logs.length > 150) state.logs.shift();
+          $("logCount").textContent = state.logs.length + " 条";
+          $("logs").innerHTML = state.logs
+            .map(
+              (x) =>
+                `<li${x.error ? ' class="error-text"' : ""}><time>${escape(x.time)}</time>${escape(x.text)}</li>`,
+            )
+            .join("");
+        }
+        function setRunning(value) {
+          state.running = value;
+          if (!value) {
+            state.stopping = false;
+            state.phase = "";
+          }
+          native({ type: "activity", running: value });
+          renderControls();
+        }
+        function renderControls() {
+          const ready = state.connected;
+          $("connection").textContent = ready
+            ? "本机已连接"
+            : socket?.readyState === 1
+              ? "准备测速服务"
+              : "连接中";
+          $("connection").classList.toggle("ready", ready);
+          $("serviceStatus").textContent = ready
+            ? "已连接 · 本机运行"
+            : "未就绪";
+          $("scanFields").disabled = state.running;
+          document
+            .querySelectorAll("[data-idle]")
+            .forEach((b) => (b.disabled = state.running || !ready));
+          $("startButton").disabled = !ready || state.stopping;
+          $("startButton").classList.toggle("danger", state.running);
+          $("startLabel").textContent = !ready
+            ? "正在连接本机服务…"
+            : state.stopping
+              ? "正在停止任务…"
+              : state.running
+                ? "停止当前任务"
+                : "开始优选";
+          $("taskPanel").hidden = !state.running;
+        }
+        function progress(current, total, label) {
+          $("taskLabel").textContent = label;
+          const p = total
+            ? Math.min(100, Math.round((current / total) * 100))
+            : 0;
+          $("taskPercent").textContent = total ? p + "%" : "准备中";
+          $("taskCount").textContent = total
+            ? `${current} / ${total} · 已发现 ${state.rows.size} 个 IP`
+            : "正在准备，请保持应用在前台";
+          $("progressFill").style.width = p + "%";
+          $("progress").setAttribute("aria-valuenow", p);
+        }
+        function send(type, data = {}) {
+          if (!state.connected || socket?.readyState !== 1) {
+            toast("本机服务未就绪，请稍后重试");
+            return false;
+          }
+          socket.send(JSON.stringify({ type, data }));
+          return true;
+        }
+        function connect() {
+          clearTimeout(reconnectTimer);
+          const generation = ++sessionNumber;
+          if (socket) {
+            socket.onclose = null;
+            socket.close();
+          }
+          state.connected = false;
+          renderControls();
+          socket = new WebSocket(
+            (location.protocol === "https:" ? "wss:" : "ws:") +
+              "//" +
+              location.host +
+              "/ws",
+          );
+          socket.onopen = () => {
+            if (generation === sessionNumber) renderControls();
+          };
+          socket.onmessage = (e) => {
+            if (generation !== sessionNumber) return;
+            try {
+              handle(JSON.parse(e.data));
+            } catch (err) {
+              log("消息处理失败：" + err.message, true);
+            }
+          };
+          socket.onclose = () => {
+            if (generation !== sessionNumber) return;
+            state.connected = false;
+            state.pipeline = false;
+            state.pending = null;
+            setRunning(false);
+            log("本机连接断开，正在重连。");
+            reconnectTimer = setTimeout(connect, 3000);
+          };
+          socket.onerror = () => {};
+        }
+        function speedURL() {
+          return $("speedSource").value === "cloudflare"
+            ? "https://speed.cloudflare.com/__down?bytes=99999999"
+            : $("speedSource").value === "custom"
+              ? $("speedURL").value.trim()
+              : "auto";
+        }
+        function parameters() {
+          return {
+            port: num("port"),
+            delay: num("delay"),
+            threads: num("threads"),
+            scanMode: $("scanMode").value,
+            auto: $("autoSpeed").checked,
+            speedLimit: num("speedLimit"),
+            speedMin: num("speedMin"),
+            speedURL: speedURL(),
+            tls: $("tls").checked,
+            resultLimit: num("resultLimit"),
+            probe: $("probe").value.trim(),
+            dc: $("targetDC").value.trim().toUpperCase(),
+          };
+        }
+        function validate() {
+          if (!$("scanForm").reportValidity()) return false;
+          return validateSpeedSettings();
+        }
+        function validateSpeedSettings() {
+          if (!$("speedMin").checkValidity()) {
+            showPage("settings");
+            $("speedMin").reportValidity();
+            return false;
+          }
+          if ($("speedSource").value === "custom") {
+            try {
+              const u = new URL($("speedURL").value);
+              if (!["https:", "http:"].includes(u.protocol)) throw Error();
+            } catch {
+              showPage("settings");
+              notice("请输入有效的 HTTP 或 HTTPS 测速网址。");
+              return false;
+            }
+          }
+          return true;
+        }
+        function operation(type, data, phase) {
+          if (!send(type, data)) return false;
+          state.phase = phase;
+          state.error = false;
+          state.stopping = false;
+          setRunning(true);
+          progress(
+            0,
+            0,
+            {
+              scan: "正在扫描官方地址",
+              latency: "正在测试连接延迟",
+              speed: "正在测试下载速度",
+              custom: "正在测试自定义 IP",
+              single: "正在测试单个 IP",
+            }[phase] || "正在测试",
+          );
+          return true;
+        }
+        function start() {
+          if (state.running) {
+            state.pipeline = false;
+            state.pending = null;
+            state.stopping = true;
+            send("stop_task");
+            renderControls();
+            return;
+          }
+          if (!state.connected || !validate()) return;
+          const p = parameters();
+          let data, type;
+          if (state.mode === "custom") {
+            const targets = $("targets").value.trim(),
+              url = $("sourceURL").value.trim();
+            if (state.input === "paste" && !targets) {
+              notice("先粘贴目标 IP，或从“文件”导入列表。");
+              $("targets").focus();
+              return;
+            }
+            if (state.input === "url") {
+              try {
+                if (!["http:", "https:"].includes(new URL(url).protocol))
+                  throw Error();
+              } catch {
+                notice("请输入有效的 HTTP 或 HTTPS 列表地址。");
+                return;
+              }
+            }
+            type = "start_nsb_task";
+            data = {
+              fileName: state.fileName,
+              fileContent: state.input === "paste" ? targets : "",
+              sourceURL: state.input === "url" ? url : "",
+              outFile: "ip.csv",
+              maxThreads: p.threads,
+              fallbackPort: p.port,
+              speedTest: p.auto ? 1 : 0,
+              speedURL: p.speedURL,
+              enableTLS: p.tls,
+              delay: p.delay,
+              resultLimit: p.resultLimit,
+              dc: p.dc,
+              speedMin: p.speedMin,
+              speedLimit: p.speedLimit,
+              compact: true,
+              scanMode: p.scanMode,
+              relinkHost: p.probe,
+            };
+          } else {
+            type = "start_task";
+            data = {
+              ipType: state.ipType,
+              threads: p.threads,
+              port: p.port,
+              delay: p.delay,
+              scanMode: p.scanMode,
+              autoSpeed: false,
+            };
+          }
+          state.rows.clear();
+          state.tests.clear();
+          state.dcs = [];
+          state.resultMode = state.mode;
+          state.taskConfig = p;
+          state.lastRun = new Date().toISOString();
+          state.limit = 50;
+          state.pipeline = state.mode === "official" && p.auto;
+          state.pending = null;
+          if (
+            operation(type, data, state.mode === "official" ? "scan" : "custom")
+          ) {
+            renderResults();
+            saveResults();
+            log(
+              "开始" +
+                (state.mode === "official" ? "官方" : "自定义") +
+                "优选。",
+            );
+          }
+        }
+        function normalize(raw, custom = false) {
+          const p = state.taskConfig?.port || num("port");
+          const duration = raw.AvgLatency ?? raw.TCPDuration;
+          return {
+            ip: String(custom ? raw.ip : raw.IP),
+            port: Number(custom ? raw.port : raw.Port) || p,
+            dc: String(custom ? raw.dc || "" : raw.DataCenter || ""),
+            city: String(
+              custom
+                ? raw.city || raw.region || ""
+                : raw.City || raw.Region || "",
+            ),
+            latency: custom
+              ? numeric(raw.latency)
+              : typeof duration === "number"
+                ? duration / 1e6
+                : numeric(raw.LatencyStr),
+            loss: custom
+              ? numeric(raw.lossRate)
+              : typeof raw.LossRate === "number"
+                ? raw.LossRate * 100
+                : null,
+            speedText: String(custom ? raw.speed || "" : raw.Speed || ""),
+            raw,
+            custom,
+          };
+        }
+        function upsert(raw, custom = false, detailed = false) {
+          if (!raw || (custom ? !raw.ip : !raw.IP)) return;
+          const row = normalize(raw, custom),
+            k = key(row),
+            old = state.rows.get(k);
+          if (old) {
+            if (!row.dc) row.dc = old.dc;
+            if (!row.city) row.city = old.city;
+            if (!row.speedText) row.speedText = old.speedText;
+          }
+          state.rows.set(k, row);
+          if (detailed) state.tests.set(k, raw);
+          scheduleResults();
+        }
+        function scheduleResults() {
+          if (!renderTimer)
+            renderTimer = setTimeout(() => {
+              renderTimer = null;
+              renderResults();
+              saveResults();
+            }, 180);
+        }
+        function filtered() {
+          const query = $("search").value.trim().toLowerCase();
+          return [...state.rows.values()]
+            .filter((r) => {
+              const f = state.filters;
+              return (
+                (!query ||
+                  [r.ip, r.dc, r.city].some((x) =>
+                    x.toLowerCase().includes(query),
+                  )) &&
+                (f.delay === null ||
+                  (r.latency !== null && r.latency <= f.delay)) &&
+                (f.loss === null || (r.loss !== null && r.loss <= f.loss)) &&
+                (!f.qualified ||
+                  (numeric(r.speedText) !== null &&
+                    numeric(r.speedText) >= num("speedMin")))
+              );
+            })
+            .sort((a, b) =>
+              $("sort").value === "speed"
+                ? (numeric(b.speedText) ?? -1) - (numeric(a.speedText) ?? -1)
+                : $("sort").value === "loss"
+                  ? (a.loss ?? Infinity) - (b.loss ?? Infinity)
+                  : (a.latency ?? Infinity) - (b.latency ?? Infinity),
+            );
+        }
+        function renderResults() {
+          const all = [...state.rows.values()],
+            rows = filtered(),
+            lat = all.map((r) => r.latency).filter((n) => n !== null),
+            speeds = all
+              .map((r) => numeric(r.speedText))
+              .filter((n) => n !== null);
+          $("statCount").textContent = all.length ? String(all.length) : "—";
+          $("statLatency").textContent = lat.length
+            ? fixed(Math.min(...lat))
+            : "—";
+          $("statSpeed").textContent = speeds.length
+            ? fixed(Math.max(...speeds))
+            : "—";
+          $("emptyResults").hidden = !!all.length;
+          $("resultTools").hidden = !all.length;
+          $("resultCount").textContent =
+            `显示 ${rows.length} / ${all.length} 个 IP` +
+            (all.length > 1000
+              ? " · 本机最多缓存 1000 条，完整结果请导出"
+              : "");
+          $("resultSubtitle").textContent = state.lastRun
+            ? (state.resultMode === "official" ? "官方优选" : "自定义 IP") +
+              " · " +
+              new Date(state.lastRun).toLocaleString("zh-CN", {
+                month: "numeric",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })
+            : "每一次测试，都从你的当前网络出发。";
+          $("dataCenters").innerHTML = state.dcs
+            .map(
+              (d) =>
+                `<button type="button" data-dc="${escape(d.DataCenter)}"${state.running || !state.connected ? " disabled" : ""}>${escape(d.DataCenter)} · ${escape(d.IPCount)} 个 · 详细测试</button>`,
+            )
+            .join("");
+          $("resultList").innerHTML =
+            rows
+              .slice(0, state.limit)
+              .map(
+                (r, i) =>
+                  `<article class="result-card" data-node="results/ip-${escape(key(r))}" aria-label="${escape(r.ip)} 测试结果"><div class="result-heading"><strong>${escape(r.ip)}</strong><button class="copy-button" type="button" data-copy="${escape(key(r))}" aria-label="复制 ${escape(endpoint(r))}">${icon("copy")}</button></div><div class="result-meta"><span>${escape(r.dc || "未识别数据中心")}${r.city ? " · " + escape(r.city) : ""}</span><span>端口 ${r.port}</span></div><div class="metric-row"><div class="metric"><span>延迟 · ms</span><b>${fixed(r.latency)}</b></div><div class="metric"><span>失败率</span><b>${r.loss === null ? "—" : fixed(r.loss) + "%"}</b></div><div class="metric"><span>速度 · MB/s</span><b class="${numeric(r.speedText) !== null ? "good" : ""}">${numeric(r.speedText) !== null ? fixed(numeric(r.speedText)) : r.speedText ? "失败" : "未测速"}</b></div><button type="button" class="row-speed" data-speed="${escape(key(r))}"${state.running || !state.connected ? " disabled" : ""}>测速</button></div></article>`,
+              )
+              .join("") ||
+            (all.length
+              ? '<p class="no-results">没有符合筛选条件的 IP。试试重置筛选。</p>'
+              : "");
+          $("loadMore").hidden = rows.length <= state.limit;
+          const active =
+            state.filters.delay !== null ||
+            state.filters.loss !== null ||
+            state.filters.qualified;
+          $("openFilters").classList.toggle("filter-active", active);
+          renderControls();
+        }
+        function detailed(dc) {
+          const p = state.taskConfig || parameters();
+          state.pending = null;
+          state.pipeline = false;
+          state.tests.clear();
+          operation(
+            "start_test",
+            { dc, port: p.port, delay: p.delay, scanMode: p.scanMode },
+            "latency",
+          );
+        }
+        function measurementSettings() {
+          return {
+            ...(state.taskConfig || parameters()),
+            speedURL: speedURL(),
+            speedMin: num("speedMin"),
+            speedLimit: num("speedLimit"),
+          };
+        }
+        function batchData(automatic = false) {
+          const p = automatic
+            ? state.taskConfig || parameters()
+            : measurementSettings();
+          if (state.resultMode === "custom")
+            return {
+              type: "start_nsb_speed_batch",
+              data: {
+                results: filtered().map((r) => r.raw),
+                speedTest: 1,
+                speedURL: p.speedURL,
+                enableTLS: p.tls,
+                speedMin: p.speedMin,
+                speedLimit: p.speedLimit,
+                skipTested: false,
+                compact: true,
+              },
+            };
+          const rows = filtered()
+            .filter((r) => state.tests.has(key(r)))
+            .map((r) => ({ ...state.tests.get(key(r)), Speed: r.speedText }));
+          return {
+            type: "start_official_speed_batch",
+            data: {
+              port: p.port,
+              url: p.speedURL,
+              speedMin: p.speedMin,
+              speedLimit: p.speedLimit,
+              results: rows,
+              skipTested: false,
+            },
+          };
+        }
+        function batch() {
+          if (state.running || !validateSpeedSettings()) return;
+          const b = batchData();
+          if (!b.data.results.length) {
+            notice(
+              "官方 IP 需要先完成详细延迟测试。点击数据中心按钮进行测试，或重新开启“自动测速”优选。",
+            );
+            return;
+          }
+          state.pipeline = false;
+          operation(b.type, b.data, "speed");
+        }
+        function finish(stopped) {
+          const next = state.pending;
+          state.pending = null;
+          const runNext =
+            !stopped &&
+            !state.stopping &&
+            !state.error &&
+            state.pipeline &&
+            next;
+          setRunning(false);
+          if (runNext) {
+            operation(next.type, next.data, next.phase);
+            return;
+          }
+          state.pipeline = false;
+          saveResults();
+          renderResults();
+          if (state.page === "scan" && state.rows.size) showPage("results");
+          if (stopped) toast("任务已停止，已有结果已保留");
+        }
+        function handle(msg) {
+          const d = msg.data;
+          switch (msg.type) {
+            case "init_config":
+              state.connected = true;
+              $("version").textContent = d.version || "";
+              $("proxyStatus").textContent = d.proxyStatus?.configured
+                ? " 当前已配置。"
+                : " 当前未配置。";
+              renderControls();
+              renderResults();
+              break;
+            case "scan_progress":
+              progress(d.current, d.total, "正在扫描官方地址");
+              break;
+            case "test_progress":
+              progress(d.current, d.total, "正在测试连接延迟");
+              break;
+            case "official_speed_progress":
+              progress(d.current, d.total, "正在测试下载速度");
+              break;
+            case "nsb_progress":
+              progress(
+                d.current,
+                d.total,
+                d.phase === "speed"
+                  ? "正在测试下载速度"
+                  : d.phase === "reallink"
+                    ? "正在复验链路"
+                    : "正在扫描自定义 IP",
+              );
+              break;
+            case "scan_result":
+              upsert(d);
+              break;
+            case "test_result":
+              upsert(d, false, true);
+              break;
+            case "scan_complete_wait_dc":
+              state.dcs = Array.isArray(d) ? d : [];
+              if (state.pipeline && !state.stopping) {
+                const p = state.taskConfig,
+                  dc = p.dc || state.dcs[0]?.DataCenter;
+                if (dc)
+                  state.pending = {
+                    type: "start_test",
+                    data: {
+                      dc,
+                      port: p.port,
+                      delay: p.delay,
+                      scanMode: p.scanMode,
+                    },
+                    phase: "latency",
+                  };
+              }
+              scheduleResults();
+              break;
+            case "test_complete":
+              if (Array.isArray(d)) {
+                state.tests.clear();
+                for (const r of d) upsert(r, false, true);
+              }
+              if (state.pipeline && !state.stopping) {
+                const b = batchData(true);
+                b.data.results = [...state.tests.values()];
+                if (b.data.results.length)
+                  state.pending = { ...b, phase: "speed" };
+              }
+              break;
+            case "speed_test_result":
+              for (const r of state.rows.values())
+                if (r.ip === d.ip) {
+                  r.speedText = d.speed || "";
+                  r.raw.Speed = r.speedText;
+                }
+              scheduleResults();
+              break;
+            case "nsb_scan_result":
+              upsert(d, true);
+              break;
+            case "nsb_scan_sorted":
+              if (Array.isArray(d)) {
+                state.rows.clear();
+                for (const r of d) upsert(r, true);
+              }
+              break;
+            case "nsb_csv_complete":
+              log(d.message || "自定义测试结果已整理。");
+              scheduleResults();
+              break;
+            case "official_speed_complete":
+            case "nsb_speed_complete":
+              if (d.rateLimited) toast("测速源限制速率，已保留当前结果");
+              break;
+            case "task_complete":
+              finish(false);
+              break;
+            case "task_stopped":
+              finish(true);
+              break;
+            case "error":
+              state.error = true;
+              state.pipeline = false;
+              state.pending = null;
+              log(String(d), true);
+              toast(String(d));
+              setRunning(false);
+              break;
+            case "log":
+              log(d);
+              break;
+            case "proxy_updated":
+              $("proxy").value = "";
+              $("proxyStatus").textContent = d.configured
+                ? " 当前已配置。"
+                : " 当前未配置。";
+              toast(d.message || "代理设置已更新");
+              break;
+            case "github_upload_result":
+              uploadPending = false;
+              toast("结果已上传到 GitHub");
+              log("GitHub 上传成功：" + (d.rawURL || d.path || ""));
+              break;
+            case "github_upload_error":
+              uploadPending = false;
+              notice(d.message || "上传失败，请检查令牌与仓库设置。");
+              break;
+          }
+        }
+        function content(format) {
+          const rows = filtered();
+          if (format === "txt") return rows.map(endpoint).join("\n");
+          const cell = (v) => '"' + String(v ?? "").replace(/"/g, '""') + '"';
+          return [
+            [
+              "IP",
+              "端口",
+              "数据中心",
+              "地区",
+              "延迟(ms)",
+              "连接失败率(%)",
+              "下载速度(MB/s)",
+            ],
+            ...rows.map((r) => [
+              r.ip,
+              r.port,
+              r.dc,
+              r.city,
+              r.latency === null ? "" : fixed(r.latency),
+              r.loss === null ? "" : fixed(r.loss),
+              numeric(r.speedText) === null
+                ? r.speedText
+                : fixed(numeric(r.speedText)),
+            ]),
+          ]
+            .map((r) => r.map(cell).join(","))
+            .join("\r\n");
+        }
+        async function copy(text) {
+          if (!native({ type: "copy", text })) {
+            try {
+              await navigator.clipboard.writeText(text);
+            } catch {
+              notice("当前浏览器不能访问剪贴板，请导出 TXT 文件。");
+              return;
+            }
+          }
+          toast("已复制到剪贴板");
+        }
+        function exportFile(format) {
+          const text = "\uFEFF" + content(format),
+            name =
+              "cfdata-" +
+              new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-") +
+              "." +
+              format;
+          if (!native({ type: "export", content: text, name })) {
+            const u = URL.createObjectURL(
+              new Blob([text], {
+                type:
+                  format === "csv"
+                    ? "text/csv;charset=utf-8"
+                    : "text/plain;charset=utf-8",
+              }),
+            );
+            const a = document.createElement("a");
+            a.href = u;
+            a.download = name;
+            document.body.append(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(u), 1000);
+          }
+          $("exportSheet").close();
+        }
+        document
+          .querySelectorAll("[data-go]")
+          .forEach((b) =>
+            b.addEventListener("click", () => showPage(b.dataset.go)),
+          );
+        document.querySelectorAll("[data-mode]").forEach(
+          (b) =>
+            (b.onclick = () => {
+              state.mode = b.dataset.mode;
+              syncForm();
+            }),
+        );
+        document.querySelectorAll("[data-input]").forEach(
+          (b) =>
+            (b.onclick = () => {
+              state.input = b.dataset.input;
+              syncForm();
+            }),
+        );
+        document.querySelectorAll("[data-ip]").forEach(
+          (b) =>
+            (b.onclick = () => {
+              state.ipType = Number(b.dataset.ip);
+              syncForm();
+            }),
+        );
+        for (const id of configIDs) $(id).addEventListener("change", syncForm);
+        matchMedia("(prefers-color-scheme: dark)").addEventListener(
+          "change",
+          theme,
+        );
+        $("scanForm").onsubmit = (e) => {
+          e.preventDefault();
+          start();
+        };
+        $("startButton").onclick = start;
+        $("importFile").onclick = () => $("fileInput").click();
+        $("fileInput").onchange = async () => {
+          const f = $("fileInput").files[0];
+          if (!f) return;
+          if (f.size > 10 * 1024 * 1024) {
+            notice("请导入小于 10 MB 的文件。");
+            return;
+          }
+          try {
+            $("targets").value = await f.text();
+            state.fileName = f.name;
+            $("fileName").textContent = "已导入 " + f.name;
+            toast("文件已导入");
+          } catch {
+            notice("文件读取失败，请重新选择。");
+          }
+        };
+        $("tls").addEventListener("change", () => {
+          if (!$("tls").checked && num("port") === 443) $("port").value = 80;
+          else if ($("tls").checked && num("port") === 80)
+            $("port").value = 443;
+          saveConfig();
+        });
+        $("search").oninput = () => {
+          state.limit = 50;
+          renderResults();
+        };
+        $("sort").onchange = renderResults;
+        $("batchSpeed").onclick = batch;
+        $("loadMore").onclick = () => {
+          state.limit += 50;
+          renderResults();
+        };
+        $("dataCenters").onclick = (e) => {
+          const b = e.target.closest("[data-dc]");
+          if (b && !state.running) detailed(b.dataset.dc);
+        };
+        $("resultList").onclick = (e) => {
+          const b = e.target.closest("button");
+          if (!b) return;
+          const r = state.rows.get(b.dataset.copy || b.dataset.speed);
+          if (!r) return;
+          if (b.dataset.copy) copy(endpoint(r));
+          else if (!state.running) {
+            if (!validateSpeedSettings()) return;
+            state.pipeline = false;
+            const p = measurementSettings();
+            if (r.custom)
+              operation(
+                "start_nsb_speed_batch",
+                {
+                  results: [r.raw],
+                  speedTest: 1,
+                  speedURL: p.speedURL,
+                  enableTLS: p.tls,
+                  speedMin: p.speedMin,
+                  speedLimit: 1,
+                  compact: true,
+                },
+                "single",
+              );
+            else
+              operation(
+                "start_speed_test",
+                { ip: r.ip, port: r.port, url: p.speedURL },
+                "single",
+              );
+          }
+        };
+        document
+          .querySelectorAll("[data-close]")
+          .forEach((b) => (b.onclick = () => b.closest("dialog").close()));
+        for (const d of document.querySelectorAll("dialog"))
+          d.addEventListener("click", (e) => {
+            if (e.target === d && e.clientY < d.getBoundingClientRect().top)
+              d.close();
+          });
+        $("openFilters").onclick = () => $("filterSheet").showModal();
+        $("applyFilters").onclick = () => {
+          if (
+            !$("filterDelay").reportValidity() ||
+            !$("filterLoss").reportValidity()
+          )
+            return;
+          state.filters = {
+            delay: $("filterDelay").value === "" ? null : num("filterDelay"),
+            loss: $("filterLoss").value === "" ? null : num("filterLoss"),
+            qualified: $("onlyQualified").checked,
+          };
+          state.limit = 50;
+          $("filterSheet").close();
+          renderResults();
+        };
+        $("resetFilters").onclick = () => {
+          $("filterDelay").value = "";
+          $("filterLoss").value = "";
+          $("onlyQualified").checked = false;
+          state.filters = { delay: null, loss: null, qualified: false };
+          $("filterSheet").close();
+          renderResults();
+        };
+        $("openExport").onclick = () => {
+          if (!filtered().length) {
+            toast("没有符合筛选条件的结果");
+            return;
+          }
+          $("exportDescription").textContent =
+            `将导出当前筛选后的 ${filtered().length} 个 IP。`;
+          $("exportSheet").showModal();
+        };
+        document
+          .querySelectorAll("[data-export]")
+          .forEach((b) => (b.onclick = () => exportFile(b.dataset.export)));
+        $("copyResults").onclick = () => {
+          copy(content("txt"));
+          $("exportSheet").close();
+        };
+        $("uploadGitHub").onclick = () => {
+          if (uploadPending) {
+            toast("正在上传，请稍候");
+            return;
+          }
+          const repo = $("ghRepo").value.trim().split("/"),
+            token = $("ghToken").value.trim(),
+            path = $("ghPath").value.trim(),
+            branch = $("ghBranch").value.trim();
+          if (
+            repo.length !== 2 ||
+            !repo.every(Boolean) ||
+            !token ||
+            !path ||
+            !branch
+          ) {
+            $("exportSheet").close();
+            showPage("settings");
+            notice("请先填写 GitHub 仓库、分支、文件路径与本次使用的令牌。");
+            return;
+          }
+          const data = {
+            token,
+            owner: repo[0],
+            repo: repo[1],
+            branch,
+            path,
+            message: "Update CFData iOS results",
+            content: content("csv"),
+          };
+          $("exportSheet").close();
+          notice(
+            `将把当前筛选结果写入 ${repo.join("/")} 的 ${branch} 分支：${path}。已有文件会被更新。`,
+            "上传到 GitHub",
+            () => {
+              uploadPending = send("github_upload", data);
+              if (uploadPending) toast("正在上传到 GitHub…");
+            },
+          );
+        };
+        $("reconnect").onclick = () => {
+          if (state.running) {
+            notice("请先停止正在运行的任务，再重新连接。");
+            return;
+          }
+          connect();
+        };
+        $("saveProxy").onclick = () =>
+          send("set_management_proxy", { value: $("proxy").value.trim() });
+        $("clearProxy").onclick = () =>
+          send("set_management_proxy", { value: "" });
+        $("clearResults").onclick = () =>
+          notice(
+            "将清除这台设备保存的测试结果，参数设置会保留。",
+            "清除测试结果",
+            () => {
+              state.rows.clear();
+              state.tests.clear();
+              state.dcs = [];
+              state.lastRun = null;
+              saveResults();
+              renderResults();
+              toast("已清除测试结果");
+            },
+          );
+        addEventListener("pagehide", flushResults);
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) flushResults();
+        });
+        window.CFData = {
+          didForeground() {
+            state.pipeline = false;
+            state.pending = null;
+            if (state.running) {
+              state.stopping = true;
+              send("stop_task");
+              renderControls();
+            }
+            toast("已返回前台，后台任务已停止；已有结果保留。");
+          },
+          willBackground() {
+            state.pipeline = false;
+            state.pending = null;
+            flushResults();
+          },
+        };
+        restore();
+        syncForm();
+        renderResults();
+        connect();
+      })();
+    </script>
+  </body>
+</html>
