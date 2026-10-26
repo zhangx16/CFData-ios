@@ -1,0 +1,55 @@
+name: Build unsigned iOS IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, ios-unsigned]
+    paths:
+      - 'ios/**'
+      - 'combined_refactor/**'
+      - '.github/workflows/ios-unsigned.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-unsigned-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 45
+    env:
+      MOBILE_VERSION: v0.0.0-20261011034528-197770444867
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: combined_refactor/go.mod
+          cache-dependency-path: combined_refactor/go.sum
+      - name: Install build tools
+        run: |
+          brew install xcodegen
+          go install golang.org/x/mobile/cmd/gomobile@"$MOBILE_VERSION"
+          go install golang.org/x/mobile/cmd/gobind@"$MOBILE_VERSION"
+          gomobile init
+      - name: Build unsigned IPA
+        run: bash ios/scripts/build_unsigned.sh
+      - name: Upload unsigned IPA
+        uses: actions/upload-artifact@v6
+        with:
+          name: CFData-ios-unsigned
+          path: |
+            release_assets/CFData-ios-unsigned.ipa
+            release_assets/CFData-ios-unsigned.ipa.sha256
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload build diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: ios-build-diagnostics
+          path: build/DerivedData/Logs
+          if-no-files-found: ignore
+          retention-days: 7
