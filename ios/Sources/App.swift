@@ -16,7 +16,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             self?.backendQueue.async {
                 do {
                     let base = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                    guard let address = try Backend.start(withDataDirectory: base.appendingPathComponent("CFData", isDirectory: true).path), let url = URL(string: address) else {
+                    let address = try Backend.start(withDataDirectory: base.appendingPathComponent("CFData", isDirectory: true).path)
+                    guard let url = URL(string: address) else {
                         throw NSError(domain: "CFData", code: 1, userInfo: [NSLocalizedDescriptionKey: "本机服务没有返回有效地址"])
                     }
                     DispatchQueue.main.async { controller?.open(url) }
