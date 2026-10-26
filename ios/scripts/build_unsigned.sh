@@ -47,5 +47,8 @@ APP_PATH="$TASK_ROOT/build/DerivedData/Build/Products/Release-iphoneos/CFData.ap
 test -f "$APP_PATH/CFData"
 lipo -info "$APP_PATH/CFData"
 python3 ios/scripts/package_ipa.py "$APP_PATH" "$TASK_ROOT/release_assets/CFData-ios-unsigned.ipa"
-shasum -a 256 release_assets/CFData-ios-unsigned.ipa > release_assets/CFData-ios-unsigned.ipa.sha256
+(
+  cd release_assets
+  shasum -a 256 CFData-ios-unsigned.ipa > CFData-ios-unsigned.ipa.sha256
+)
 echo "Built release_assets/CFData-ios-unsigned.ipa; sign before installing on an iPhone."

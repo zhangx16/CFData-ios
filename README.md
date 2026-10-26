@@ -4,7 +4,9 @@
 
 ## 从 GitHub 下载 IPA
 
-打开仓库 **Actions → Build unsigned iOS IPA → 最新成功运行 → Artifacts → CFData-ios-unsigned**，解压后得到 `CFData-ios-unsigned.ipa` 和 SHA-256 校验文件。也可通过 **Run workflow** 手动构建。无需 Apple 证书或 GitHub Secrets。
+直接打开 [最新 Release](https://github.com/zhangx16/CFData-ios/releases/latest)，下载 `CFData-ios-unsigned.ipa` 和 SHA-256 校验文件。每次构建成功后会自动创建 Release 并上传 IPA，无需 Apple 证书或 GitHub Secrets。
+
+也可通过 **Actions → Build unsigned iOS IPA → Run workflow** 手动构建；Actions Artifacts 同样保留一份压缩包（30 天）。
 
 **此 IPA 未签名，不能直接点击安装。** 下载后用自己的有效签名方式签名，再安装到允许的设备。支持 iOS/iPadOS 16.0 及以上、ARM64 真机；不包含模拟器。
 
